@@ -1,6 +1,7 @@
 use bevy::prelude::*;
 
-use crate::components::common::PreloadedAssets;
+use crate::components::preloaded_assets::PreloadedAssets;
+
 
 pub fn preload_assets(
   asset_server: Res<AssetServer>,
