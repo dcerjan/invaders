@@ -10,7 +10,7 @@ impl Plugin for WindowSetupPlugin {
   fn build(&self, app: &mut AppBuilder) {
     app
       .add_resource(WindowDescriptor {
-        title: "I am a window!".to_string(),
+        title: "Invaders!".to_string(),
         width: 320,
         height: 200,
         vsync: true,
