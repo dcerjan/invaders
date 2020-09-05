@@ -8,6 +8,7 @@ use invaders::plugins::*;
 use invaders::systems::{
   preload_assets,
   player::*,
+  enemy::*,
   common::*,
 };
 
@@ -46,7 +47,9 @@ fn main() {
     .add_startup_system(preload_assets.system())
     .add_startup_system(setup.system())
     .add_startup_system(player_init.system())
+    .add_startup_system(enemy_init.system())
     .add_system(player_movement.system())
+    .add_system(enemy_movement.system())
     .add_system(player_shoot.system())
     .add_system(update_projectile.system())
     .add_system(update_score.system())

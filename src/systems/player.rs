@@ -15,8 +15,7 @@ pub fn player_init(
   let spaceship_texture = preloaded_assets.player_ship;
 
   commands
-    .spawn(Camera2dComponents::default())
-    .spawn(UiCameraComponents::default())    .spawn(
+    .spawn(
       SpriteComponents {
         draw: Draw { is_transparent: true, ..Default::default() },
         material: materials.add(spaceship_texture.into()),
@@ -47,8 +46,6 @@ pub fn player_movement(
       if keyboard_input.pressed(KeyCode::Right) { delta += 1.0; }
 
       *translation.0.x_mut() += time.delta_seconds * delta * speed.0;
-
-      // Bound left and right positions
       *translation.0.x_mut() = f32::max(-144.0, f32::min(144.0, translation.0.x()));
   }
 }
@@ -63,7 +60,7 @@ pub fn player_shoot(
   for (_, translation, _) in &mut query.iter() {
     if keyboard_input.just_pressed(KeyCode::Space) {
       let mut bullet_translation = translation.clone();
-      bullet_translation.set_y(translation.y() + 16.0);
+      *bullet_translation.y_mut() += 16.0;
 
       commands
         .spawn(SpriteComponents {

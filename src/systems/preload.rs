@@ -12,6 +12,8 @@ pub fn preload_assets(
   preloaded_assets.player_projectile = asset_server.load("assets/sprite/player_projectile.png").unwrap();
   preloaded_assets.player_ship = asset_server.load("assets/sprite/player_ship.png").unwrap();
 
+  preloaded_assets.enemy_ship_1 = asset_server.load("assets/sprite/enemy_ship_1.png").unwrap();
+
   asset_server
     .watch_for_changes()
     .unwrap();
